@@ -1,0 +1,11 @@
+#### calling reusable workflow
+name: resuing  workflow 
+
+on:
+  workflow_dispatch:
+
+jobs:
+  terraform:
+        uses: ./.github/workflows/reuse.yaml
+        with:
+          workflow_input: ' input while calling reusable workflow' 
