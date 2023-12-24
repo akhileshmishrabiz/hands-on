@@ -1,28 +1,24 @@
-name: first workflow
+name: Workflow with manual trigger and Environment Variables
 
-on: [push ]
-
+on:
+  workflow_dispatch: # Manual trigger
+env:
+  WORKFLOW_ENV_VARIABLE: "Workflow Level"
 
 jobs:
-  first-workflow:
+  example_job:
     runs-on: ubuntu-latest
+    env:
+      JOB_ENV_VARIABLE: "Job Level"
 
     steps:
-    - name: checkout repo
+    - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Hellow world
-      run:  exit 1
-
-  second-job:
-    runs-on: ubuntu-latest
-    needs: [first-workflow]
-    steps:
-    - name: checkout repo
-      uses: actions/checkout@v2
-
-
-    - name: multiple commands
+    - name: Print Environment Variables
       run: |
-        echo "first command"
-        echo "second command"
+        echo "Workflow Level Environment Variable: $WORKFLOW_ENV_VARIABLE"
+        echo "Job Level Environment Variable: $JOB_ENV_VARIABLE"
+        echo "Step Level Environment Variable: ${{ env.STEP_ENV_VARIABLE }}"
+      env:
+        STEP_ENV_VARIABLE: "Step Level"
