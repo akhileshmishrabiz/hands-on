@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Hellow world
-      run: echo "hello world"
+      run:  exit 1
 
   second-job:
     runs-on: ubuntu-latest
