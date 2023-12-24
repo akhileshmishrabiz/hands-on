@@ -1,7 +1,7 @@
 name: first workflow
 
-on: 
-  workflow_dispatch
+on: [push, workflow_dispatch ]
+
 
 jobs:
   first-workflow:
@@ -14,7 +14,14 @@ jobs:
     - name: Hellow world
       run: echo "hello world"
 
-    - name: multiple commands
-      run: |
-        echo "first command"
-        echo "second command"
+    second-job:
+      runs-on: ubuntu-latest
+      steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+
+
+      - name: multiple commands
+        run: |
+          echo "first command"
+          echo "second command"
