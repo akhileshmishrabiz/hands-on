@@ -1,0 +1,19 @@
+name: first workflow
+
+on: [push]
+
+jobs:
+  first-workflow
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v2
+
+    - name: Hellow world
+      run: echo "hello world"
+
+    - name: multiple commands
+      run: |
+        echo "first command"
+        echo "second command"
