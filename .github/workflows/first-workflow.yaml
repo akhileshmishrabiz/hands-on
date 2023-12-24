@@ -14,14 +14,14 @@ jobs:
     - name: Hellow world
       run: echo "hello world"
 
-    second-job:
-      runs-on: ubuntu-latest
-      steps:
-      - name: checkout repo
-        uses: actions/checkout@v2
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v2
 
 
-      - name: multiple commands
-        run: |
-          echo "first command"
-          echo "second command"
+    - name: multiple commands
+      run: |
+        echo "first command"
+        echo "second command"
