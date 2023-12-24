@@ -11,10 +11,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the current directory contents into the container at /app
-COPY app.py .
+COPY calculator.py .
 
 # Expose port 5000 for the Flask app to run on
-EXPOSE 5000
+# EXPOSE 5000
 
 # Define the command to run your application
-CMD ["python", "app.py"]
+CMD ["python", "calculator.py"]
